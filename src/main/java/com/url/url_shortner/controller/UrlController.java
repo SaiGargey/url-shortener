@@ -1,5 +1,9 @@
 package com.url.url_shortner.controller;
 
+import com.url.url_shortner.repository.UrlRepository;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.url.url_shortner.model.Url;
 import com.url.url_shortner.service.UrlService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,9 @@ public class UrlController {
 
     @Autowired
     private UrlService urlService;
+
+    @Autowired
+    private UrlRepository urlRepository;
 
     @PostMapping("/api/shorten")
     public ResponseEntity<Map<String, Object>> shortenUrl(@RequestBody Map<String, String> request) {
@@ -41,5 +48,18 @@ public class UrlController {
 
         return ResponseEntity.status(HttpStatus.FOUND).headers(headers).build();
     }
-
+    @GetMapping("/api/urls")
+    public ResponseEntity<List<Map<String, Object>>> getAllUrls() {
+        List<Map<String, Object>> urls = urlRepository.findAll().stream()
+                .map(url -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("shortCode", url.getShortCode());
+                    map.put("originalUrl", url.getOriginalUrl());
+                    map.put("shortUrl", "http://localhost:8081/" + url.getShortCode());
+                    map.put("clickCount", url.getClickCount());
+                    return map;
+                })
+                .collect(java.util.stream.Collectors.toList());
+        return ResponseEntity.ok(urls);
+    }
 }
