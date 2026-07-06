@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const API_BASE =
-    import.meta.env.VITE_API_BASE || "http://localhost:8081";
+    import.meta.env.VITE_API_BASE || "http://3.88.6.219:8081";
 
 
 
