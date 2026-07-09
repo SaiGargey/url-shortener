@@ -1,8 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_BASE =
-    import.meta.env.VITE_API_BASE || "http://3.88.6.219:8081";
+const API_BASE = "https://url-shortener-production-6166.up.railway.app";
 
 
 
