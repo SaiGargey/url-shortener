@@ -219,7 +219,7 @@ export default function App() {
             <span>Built by Sai Gargey</span>
             <div className="flex gap-4">
               <a
-                  href="https://github.com/SaiGargey"
+                  href="https://github.com/SaiGargey/url-shortener"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition flex items-center gap-1"
@@ -230,7 +230,7 @@ export default function App() {
                 GitHub
               </a>
               <a
-                  href="https://linkedin.com/in/YOUR_LINKEDIN"
+                  href="https://www.linkedin.com/in/n-sai-gargey-18773b29a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition flex items-center gap-1"
