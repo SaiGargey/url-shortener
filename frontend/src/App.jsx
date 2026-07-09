@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_BASE = "https://url-shortener-production-6166.up.railway.app";
+const API_BASE = "https://sai.up.railway.app";
 
 
 
