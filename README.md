@@ -120,20 +120,36 @@ Frontend available at `http://localhost:5173`
 ---
 
 ## Project Structure
+
+```text
 url-shortener/
-├── src/main/java/com/url/url_shortner/
-│   ├── controller/        # HTTP request handling
-│   ├── service/           # Business logic and Base62 encoding
-│   ├── repository/        # Spring Data JPA repository
-│   ├── model/             # Url entity
-│   └── config/            # CORS configuration
+├── src/
+│   └── main/java/com/url/url_shortner/
+│       ├── controller/
+│       ├── service/
+│       ├── repository/
+│       ├── model/
+│       └── config/
 ├── frontend/
 │   └── src/
-│       └── App.jsx        # React dashboard
-├── Dockerfile             # Multi-stage build (Maven → JRE Alpine)
-├── docker-compose.yml     # App + PostgreSQL services
+│       └── App.jsx
+├── Dockerfile
+├── docker-compose.yml
 └── README.md
----
+```
+
+### Directory Overview
+
+| Directory/File | Purpose |
+|----------------|---------|
+| `controller/` | REST API endpoints |
+| `service/` | Business logic and Base62 encoding |
+| `repository/` | Spring Data JPA repositories |
+| `model/` | JPA entity classes |
+| `config/` | CORS and application configuration |
+| `frontend/` | React frontend |
+| `Dockerfile` | Multi-stage Docker build |
+| `docker-compose.yml` | Runs the application with PostgreSQL |
 
 ## Author
 
