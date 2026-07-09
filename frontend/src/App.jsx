@@ -37,7 +37,7 @@ export default function App() {
     } catch (err) {
       setError(
           err.response?.data?.message ||
-          "Something went wrong. Is your backend running?"
+          "Something went wrong !! Please Wait"
       );
     } finally {
       setLoading(false);
