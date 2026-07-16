@@ -16,7 +16,7 @@ A production-deployed, full-stack URL shortening service built with Java Spring 
 | ORM | Spring Data JPA, Hibernate |
 | Frontend | React 18, Vite, Tailwind CSS |
 | Containerization | Docker, Docker Compose |
-| Backend Hosting | Railway |
+| Backend Hosting | Render |
 | Frontend Hosting | Vercel |
 
 ---
@@ -36,7 +36,7 @@ A production-deployed, full-stack URL shortening service built with Java Spring 
 ### URL Generation Strategy
 Short codes are generated using Base62 encoding on the auto-incremented database ID. This guarantees uniqueness without collision handling, produces short and URL-safe codes, and allows the code length to grow naturally as the ID increases.
 
-# Project Architecture
+## Project Architecture
 
 ```mermaid
 flowchart LR
@@ -49,13 +49,13 @@ flowchart LR
 
     subgraph Backend
         B["Spring Boot REST API"]
-        B1["Hosted on Railway"]
+        B1["Hosted on Render"]
         B --> B1
     end
 
     subgraph Database
         C["PostgreSQL"]
-        C1["Railway Database"]
+        C1["Render Database"]
         C --> C1
     end
 
@@ -65,10 +65,11 @@ flowchart LR
     style A fill:#61DAFB,stroke:#20232A,stroke-width:2px,color:#000
     style A1 fill:#000000,stroke:#000000,stroke-width:2px,color:#FFFFFF
     style B fill:#6DB33F,stroke:#2E7D32,stroke-width:2px,color:#FFFFFF
-    style B1 fill:#7B3FF2,stroke:#5A2CA0,stroke-width:2px,color:#FFFFFF
+    style B1 fill:#46E3B7,stroke:#00A67E,stroke-width:2px,color:#000000
     style C fill:#336791,stroke:#1B4F72,stroke-width:2px,color:#FFFFFF
-    style C1 fill:#7B3FF2,stroke:#5A2CA0,stroke-width:2px,color:#FFFFFF
+    style C1 fill:#46E3B7,stroke:#00A67E,stroke-width:2px,color:#000000
 ```
+
 ### Redirect Flow
 1. Client submits a long URL via `POST /api/shorten`
 2. Service checks if the URL already exists in the database
@@ -150,6 +151,8 @@ url-shortener/
 | `frontend/` | React frontend |
 | `Dockerfile` | Multi-stage Docker build |
 | `docker-compose.yml` | Runs the application with PostgreSQL |
+
+---
 
 ## Author
 
